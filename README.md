@@ -52,7 +52,7 @@ De esta forma, podemos crear objetos como:
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/notifications-bridge.git
+https://github.com/Zanyllect68/notifications-bridge.git
 cd notifications-bridge
 ```
 
