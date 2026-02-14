@@ -41,6 +41,15 @@ De esta forma, podemos crear objetos como:
 - `WebPlatform`, `MobilePlatform`, `DesktopPlatform`: distintas plataformas de presentación.  
 - `Main`: clase de entrada con el método `main`, donde se crean y envían las notificaciones de ejemplo.
 
+## Diagrama UML
+
+El siguiente diagrama muestra la separación entre la jerarquía de **Abstracción** (tipos de notificaciones) y la jerarquía de **Implementación** (plataformas), conectadas mediante el "puente" en la clase base.
+
+![Diagrama UML del patrón Bridge](uml/diagram.png)
+
+## Justificación técnica del Patrón
+Se implementó el patrón **Bridge** para desacoplar el "qué" se notifica del "cómo" se muestra. Esta arquitectura permite que ambas dimensiones crezcan de forma independiente. Si en el futuro se añade una plataforma como `SmartwatchPlatform`, no es necesario tocar ninguna de las clases de notificaciones existentes, cumpliendo con el principio de **Abierto/Cerrado (OCP)**.
+
 ## Requisitos
 
 - Java 21 (o compatible).  
