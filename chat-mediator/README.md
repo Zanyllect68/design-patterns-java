@@ -54,7 +54,7 @@ Gracias a esto:
 
 El siguiente diagrama ilustra cómo el mediador centraliza la lógica de comunicación, permitiendo que los objetos "Colega" (Usuarios) permanezcan desacoplados entre sí.
 
-![Diagrama UML del patrón Mediator](uml/diagram.png)
+![Diagrama UML del patrón Mediator](chat-mediator/uml/diagram.png)
 
 
 ## Justificación técnica del Patrón
