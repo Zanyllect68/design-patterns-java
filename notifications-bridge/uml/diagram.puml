@@ -3,40 +3,62 @@ title Patrón Bridge - Sistema de Notificaciones Multiplataforma
 
 /' Abstracción '/
 interface Notification {
-    + send(String)
+    + send(String message)
 }
 
 abstract class BaseNotification {
     # NotificationPlatform platform
-    # BaseNotification(NotificationPlatform)
+    # BaseNotification(NotificationPlatform platform)
 }
 
 class AlertNotification {
-    + send(String)
+    + AlertNotification(NotificationPlatform)
+    + send(String message)
 }
+
+class ConfirmationNotification {
+    + ConfirmationNotification(NotificationPlatform)
+    + send(String message)
+}
+
+class MessageNotification {
+    + MessageNotification(NotificationPlatform)
+    + send(String message)
+}
+
 class WarningNotification {
-    + send(String)
+    + WarningNotification(NotificationPlatform)
+    + send(String message)
 }
-/' ... otras notificaciones ... '/
 
 /' Implementación (Implementor) '/
 interface NotificationPlatform {
-    + show(String, String)
+    + show(String title, String body)
 }
 
 class WebPlatform {
-    + show(String, String)
+    + show(String title, String body)
 }
+
 class MobilePlatform {
-    + show(String, String)
+    + show(String title, String body)
+}
+
+class DesktopPlatform {
+    + show(String title, String body)
 }
 
 /' Relaciones '/
 Notification <|.. BaseNotification
 BaseNotification o--> NotificationPlatform : "puente (bridge)"
+
 BaseNotification <|-- AlertNotification
+BaseNotification <|-- ConfirmationNotification
+BaseNotification <|-- MessageNotification
 BaseNotification <|-- WarningNotification
+
 NotificationPlatform <|.. WebPlatform
 NotificationPlatform <|.. MobilePlatform
+NotificationPlatform <|.. DesktopPlatform
 
 @enduml
