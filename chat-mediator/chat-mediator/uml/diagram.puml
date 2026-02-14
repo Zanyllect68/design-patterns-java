@@ -1,0 +1,40 @@
+@startuml
+title Patrón Mediator - ChatRoom
+
+interface ChatMediator {
+    + registrarUsuario(Usuario)
+    + enviarMensaje(String, Usuario)
+}
+
+class ChatRoom {
+    - List<Usuario> usuarios
+    + registrarUsuario(Usuario)
+    + enviarMensaje(String, Usuario)
+}
+
+abstract class Usuario {
+    # String nombre
+    # ChatMediator chat
+    + Usuario(String, ChatMediator)
+    + getNombre(): String
+    + {abstract} enviar(String)
+    + {abstract} recibir(String, String)
+}
+
+class UsuarioConcreto {
+    + UsuarioConcreto(String, ChatMediator)
+    + enviar(String)
+    + recibir(String, String)
+}
+
+ChatMediator <|.. ChatRoom
+Usuario o-- ChatMediator
+ChatRoom o-- Usuario
+Usuario <|-- UsuarioConcreto
+
+note right of ChatRoom
+  Itera sobre la lista y 
+  notifica a todos excepto 
+  al remitente.
+end note
+@enduml
