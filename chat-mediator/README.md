@@ -50,6 +50,21 @@ Gracias a esto:
   - Crea la sala de chat (`ChatRoom`).  
   - Crea varios usuarios, los registra en el mediador y simula el envío de mensajes.
 
+## Diagrama UML
+
+El siguiente diagrama ilustra cómo el mediador centraliza la lógica de comunicación, permitiendo que los objetos "Colega" (Usuarios) permanezcan desacoplados entre sí.
+
+![Diagrama UML del patrón Mediator](uml/diagram.png)
+
+
+## Justificación técnica del Patrón
+Se seleccionó el patrón **Mediator** para este escenario por las siguientes razones:
+
+* **Reducción del acoplamiento (Many-to-Many a Many-to-One):** En lugar de que cada objeto `Usuario` mantenga referencias de todos los demás participantes (lo que crearía una red de dependencias compleja), los usuarios solo conocen la interfaz `ChatMediator`.
+* **Centralización de la lógica de difusión:** El `ChatRoom` es el único lugar donde reside la lógica de envío (Broadcasting). Si en el futuro se desea implementar un filtro de palabras, registro de logs o mensajes privados, solo se debe modificar el mediador sin alterar a los usuarios.
+* **Principio de Responsabilidad Única:** Los usuarios solo se preocupan por su contenido (enviar y recibir), delegando la responsabilidad de la logística de entrega al mediador.
+* **Escalabilidad:** Facilita la adición de nuevos tipos de participantes (como bots o administradores) simplemente extendiendo la clase abstracta `Usuario`, cumpliendo así con el principio Open/Closed.
+
 ## Requisitos
 
 - Java 21 (o compatible).  
