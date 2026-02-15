@@ -2,6 +2,8 @@
 
 - Andres Felipe Galeano Tellez
 - Jaime Andres Estrada Gordillo
+- Carlos Javier Gutierrez Torres
+- Esli Emanuel Valenciano Mesa
 ***
 
 ## Ejercicio 1 – Automóvil configurable
@@ -51,6 +53,7 @@ El patrón Mediator centraliza la comunicación en un objeto mediador (`ChatRoom
 - Cliente: `Main`, que crea la sala de chat, registra los usuarios y simula el envío de mensajes.
 
 ***
+
 
 
 
